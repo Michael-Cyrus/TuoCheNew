@@ -31,4 +31,6 @@ dependencies {
 
     // log 日志
     compile 'com.orhanobut:logger:2.1.1'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.tencent.bugly:crashreport:latest.release'
 }
