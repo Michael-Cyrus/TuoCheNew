@@ -1,4 +1,4 @@
-package com.cheguo.tuochenew.ui.fragment;
+package com.cheguo.tuochenew.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

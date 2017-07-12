@@ -17,6 +17,8 @@ import com.cheguo.tuochenew.R;
 import com.cheguo.tuochenew.adapter.QuickPageAdapter;
 import com.cheguo.tuochenew.base.BaseActivity;
 import com.cheguo.tuochenew.ui.view.viewpagerindicator.CirclePageIndicator;
+import com.cheguo.tuochenew.utils.Constant;
+import com.cheguo.tuochenew.utils.SPUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,6 +135,7 @@ public class SplashActivity extends BaseActivity {
 
     @OnClick(R.id.over_tv)
     public void gotoHomePage() {
+        SPUtils.putBoolean(Constant.KEY_IS_FIRST_START, false);
         MainActivity.startActivity(this);
         finish();
     }

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="trailer_manager_status_title">
+        <item>全部</item>
+        <item>待拖车</item>
+        <item>待移交</item>
+        <item>审核中</item>
+        <item>已完结</item>
+        <!--<item>@string/trailer_lost_effective</item>-->
+        <item>拖车失败</item>
+    </string-array>
+
+    <integer-array name="trailer_manager_status">
+        <item>0</item>
+        <item>1</item>
+        <item>10</item>
+        <item>2</item>
+        <item>3</item>
+        <!--<item>5</item>-->
+        <item>4</item>
+    </integer-array>
+
+    <integer-array name="order_item_show_num">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>10</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </integer-array>
+
+    <string-array name="order_status_str">
+        <item>全部</item>
+        <item>待确认</item>
+        <item>待派单</item>
+        <item>待拖车</item>
+        <item>待移交</item>
+        <item>审核中</item>
+        <item>已完结</item>
+        <item>未通过</item>
+        <item>已撤回</item>
+        <item>已失效</item>
+        <item>拖车失败</item>
+    </string-array>
+
+    <string-array name="trailer_register_images">
+        <item>@mipmap/trailer_upload_image_1</item>
+        <item>@mipmap/trailer_upload_image_2</item>
+        <item>@mipmap/trailer_upload_image_3</item>
+    </string-array>
+
+    <string-array name="trailer_register_str">
+        <item>车辆正面</item>
+        <item>车架号</item>
+        <item>仪表盘(选填)</item>
+    </string-array>
+
+    <string-array name="transfer_register_images">
+        <item>@mipmap/trailer_upload_image_4</item>
+        <item>@mipmap/trailer_upload_image_5</item>
+    </string-array>
+
+    <string-array name="transfer_register_str">
+        <item>接收方人车合影</item>
+        <item>车牌照片(选填)</item>
+    </string-array>
+
+    <string-array name="admin_tab_titles">
+        <item>首页</item>
+        <item>派单中心</item>
+        <item>关注</item>
+        <item>我的</item>
+    </string-array>
+
+    <string-array name="admin_tab_select_images">
+        <item>@mipmap/ic_tab_one_f</item>
+        <item>@mipmap/ic_tab_two_f</item>
+        <item>@mipmap/ic_tab_three_f</item>
+        <item>@mipmap/ic_tab_four_f</item>
+    </string-array>
+
+    <string-array name="admin_tab_unselect_images">
+        <item>@mipmap/ic_tab_one_n</item>
+        <item>@mipmap/ic_tab_two_n</item>
+        <item>@mipmap/ic_tab_three_n</item>
+        <item>@mipmap/ic_tab_four_n</item>
+    </string-array>
+
+</resources>

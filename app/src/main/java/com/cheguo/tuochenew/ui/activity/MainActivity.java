@@ -7,11 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cheguo.tuochenew.R;
+import com.cheguo.tuochenew.adapter.FragmentAdapter;
 import com.cheguo.tuochenew.base.BaseActivity;
-import com.cheguo.tuochenew.ui.fragment.FragmentAdapter;
-import com.cheguo.tuochenew.ui.fragment.TabFragment;
+import com.cheguo.tuochenew.ui.fragment.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,6 @@ public class MainActivity extends BaseActivity {
     @Bind(R.id.tablayout)
     TabLayout mTabLayout;
 
-    private String[] titles = new String[]{"微信", "通讯录", "发现", "我"};
     private FragmentAdapter adapter;
     //ViewPage选项卡页面集合
     private List<Fragment> mFragments;
@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
     /**
      * 图片数组
      */
-    private int[] mImgs=new int[]{R.drawable.selector_tab_weixin, R.drawable.selector_tab_friends, R.drawable.selector_tab_find,
+    private int[] mImgs=new int[]{R.drawable.selector_tab_home, R.drawable.selector_tab_trust_order, R.drawable.selector_tab_attention,
             R.drawable.selector_tab_me};
 
     @Override
@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        String[] titles = getResources().getStringArray(R.array.admin_tab_titles);
         mTitles = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             mTitles.add(titles[i]);
@@ -52,7 +53,7 @@ public class MainActivity extends BaseActivity {
 
         mFragments = new ArrayList<>();
         for (int i = 0; i < mTitles.size(); i++) {
-            mFragments.add(TabFragment.newInstance(i));
+            mFragments.add(HomeFragment.newInstance(i));
         }
         adapter = new FragmentAdapter(getSupportFragmentManager(), mFragments, mTitles);
         mViewPager.setAdapter(adapter);//给ViewPager设置适配器
@@ -75,5 +76,17 @@ public class MainActivity extends BaseActivity {
     protected static void startActivity(Activity activity) {
         Intent intent = new Intent(activity, MainActivity.class);
         activity.startActivity(intent);
+    }
+    private static final long WAIT_TIME = 2000L;
+    private long TOUCH_TIME = 0;
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+            finish();
+        } else {
+            TOUCH_TIME = System.currentTimeMillis();
+            Toast.makeText(this, R.string.press_again_exit, Toast.LENGTH_SHORT).show();
+        }
     }
 }
