@@ -16,7 +16,7 @@ public class SPUtils {
     private static SharedPreferences sp;
 
     public static void init(Context context){
-//        sp = context.getSharedPreferences(
+//        sp = mContext.getSharedPreferences(
 //                PREFERENCE_NAME, Context.MODE_PRIVATE);
         sp= PreferenceManager.getDefaultSharedPreferences(context);
     }

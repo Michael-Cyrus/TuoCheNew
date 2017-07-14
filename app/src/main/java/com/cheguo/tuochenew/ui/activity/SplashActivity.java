@@ -87,6 +87,7 @@ public class SplashActivity extends BaseActivity {
         List list = new ArrayList();
         for (int i = 0; i < splashImageIdArr.length; i++) {
             ImageView imageView = new ImageView(this);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setImageResource(splashImageIdArr[i]);
             list.add(imageView);
         }

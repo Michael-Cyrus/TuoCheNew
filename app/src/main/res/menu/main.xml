@@ -1,0 +1,34 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.elonlink.toolbardemo.MainActivity">
+
+    <item
+        android:id="@+id/ab_search"
+        android:orderInCategory="10"
+        android:title="action_search"
+        android:visible="true"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/camera"
+        android:orderInCategory="10"
+        android:title="相机"
+        android:icon="@mipmap/toolbar_camera"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings1"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:visible="true"
+        app:showAsAction="never" />
+</menu>

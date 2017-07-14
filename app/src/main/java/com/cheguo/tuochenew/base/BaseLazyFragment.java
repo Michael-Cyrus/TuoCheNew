@@ -9,8 +9,8 @@ import android.os.Bundle;
  * @author：cg123
  * @create：2016-01-15 14:26
  */
-public abstract class LazyBaseFragment extends BaseFragment {
-    private static final String TAG = LazyBaseFragment.class.getSimpleName();
+public abstract class BaseLazyFragment extends BaseFragment {
+    private static final String TAG = BaseLazyFragment.class.getSimpleName();
     private boolean isPrepared;
 
     @Override

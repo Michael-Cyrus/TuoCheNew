@@ -3,6 +3,7 @@ package com.cheguo.tuochenew.app;
 import android.content.Context;
 
 import com.cheguo.tuochenew.utils.SPUtils;
+import com.cheguo.tuochenew.utils.Util;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -27,6 +28,7 @@ public class MyApp {
 
     public void init(Context context){
         this.context = context;
+        Util.init(context);
         // EventBus 事件传递
         mBus = EventBus.getDefault();
         // SharedPreferences 初始化

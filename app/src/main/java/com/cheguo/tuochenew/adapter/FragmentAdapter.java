@@ -11,7 +11,7 @@ import java.util.List;
  * Created by lijuan on 2016/8/23.
  */
 public class FragmentAdapter extends FragmentStatePagerAdapter {
-    public List<Fragment> list;
+    public List<Fragment> fragmentList;
     private List<String> titles;
 
     /**
@@ -19,7 +19,7 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
      */
     public FragmentAdapter(FragmentManager fm, List<Fragment> list, List<String> titles) {
         super(fm);
-        this.list = list;
+        this.fragmentList = list;
         this.titles = titles;
     }
 
@@ -28,7 +28,7 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
      */
     @Override
     public int getCount() {
-        return list.size();
+        return fragmentList.size();
     }
 
     /**
@@ -36,7 +36,7 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        return list.get(position);
+        return fragmentList.get(position);
     }
 
     /**

@@ -13,6 +13,7 @@ import com.cheguo.tuochenew.R;
 import com.cheguo.tuochenew.adapter.FragmentAdapter;
 import com.cheguo.tuochenew.base.BaseActivity;
 import com.cheguo.tuochenew.ui.fragment.HomeFragment;
+import com.cheguo.tuochenew.ui.fragment.TrustOrderCenterFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +53,10 @@ public class MainActivity extends BaseActivity {
         }
 
         mFragments = new ArrayList<>();
-        for (int i = 0; i < mTitles.size(); i++) {
-            mFragments.add(HomeFragment.newInstance(i));
-        }
+            mFragments.add(HomeFragment.newInstance(1));
+            mFragments.add(HomeFragment.newInstance(1));
+            mFragments.add(HomeFragment.newInstance(1));
+            mFragments.add(TrustOrderCenterFragment.newInstance());
         adapter = new FragmentAdapter(getSupportFragmentManager(), mFragments, mTitles);
         mViewPager.setAdapter(adapter);//给ViewPager设置适配器
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来
@@ -81,9 +83,8 @@ public class MainActivity extends BaseActivity {
     private long TOUCH_TIME = 0;
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
-            finish();
+            super.onBackPressed();
         } else {
             TOUCH_TIME = System.currentTimeMillis();
             Toast.makeText(this, R.string.press_again_exit, Toast.LENGTH_SHORT).show();

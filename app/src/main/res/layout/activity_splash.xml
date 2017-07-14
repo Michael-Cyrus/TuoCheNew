@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="30dp"
         android:background="@mipmap/welcome_btn"
         android:gravity="center"
         android:visibility="gone"/>
