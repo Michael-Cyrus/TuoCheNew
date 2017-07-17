@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cheguo.tuochenew.R;
-import com.cheguo.tuochenew.base.BaseFragment;
 import com.cheguo.tuochenew.base.BaseLazyFragment;
 import com.orhanobut.logger.Logger;
 
@@ -21,7 +20,7 @@ import butterknife.Bind;
  * Created by chenyao on 2017/7/12.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment3 extends BaseLazyFragment {
     public final String TAG = this.getClass().getSimpleName();
 
 //    @Bind(R.id.mToolbar)
@@ -32,10 +31,10 @@ public class HomeFragment extends BaseFragment {
 //    TextView toolbarCenterTv;
     private SearchView searchView;
 
-    public static HomeFragment newInstance(int index) {
+    public static HomeFragment3 newInstance(int index) {
         Bundle bundle = new Bundle();
         bundle.putInt("index", 'A' + index);
-        HomeFragment fragment = new HomeFragment();
+        HomeFragment3 fragment = new HomeFragment3();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -56,7 +55,7 @@ public class HomeFragment extends BaseFragment {
     protected void afterCreate(Bundle savedInstanceState) {
         Logger.e("afterCreate");
         ((AppCompatActivity)mContext).setSupportActionBar(mToolbar);
-//        mToolbar.inflateMenu(R.menu.main);
+//        mToolbar.inflateMenu(R.menu.main3);
         initView();
     }
 
@@ -75,11 +74,11 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         mToolbar.getMenu().clear();
-        mToolbar.inflateMenu(R.menu.main);
+        mToolbar.inflateMenu(R.menu.main3);
         // 获取ToolBar 的Menu控件采用以下方式获取，从ToolBar中获取Menu，然后获取Item控件
 //        MenuItem search = mToolbar.getMenu().findItem(R.id.ab_search);
 //        menu.clear();
-//        inflater.inflate(R.menu.main, menu);    // 不能使用这种方式给ToolBar添加Menu
+//        inflater.inflate(R.menu.main3, menu);    // 不能使用这种方式给ToolBar添加Menu
 //        search.setVisible(true);
         Logger.e("onCreateOptionsMenu");
     }

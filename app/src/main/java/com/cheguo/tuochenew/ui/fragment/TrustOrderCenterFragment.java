@@ -1,6 +1,7 @@
 package com.cheguo.tuochenew.ui.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -34,6 +35,11 @@ public class TrustOrderCenterFragment extends BaseLazyFragment {
         return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTranslucentStatus(true);
+    }
 
     @Override
     protected int getLayoutId() {
@@ -73,7 +79,7 @@ public class TrustOrderCenterFragment extends BaseLazyFragment {
         tabLayout.setupWithViewPager(viewpager);
     }
 
-//    @Override
+    //    @Override
 //    protected void onEnterAnimationEnd(Bundle savedInstanceState) {
 //        super.onEnterAnimationEnd(savedInstanceState);
 //    }

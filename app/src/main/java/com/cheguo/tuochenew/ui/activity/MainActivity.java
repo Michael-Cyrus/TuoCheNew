@@ -13,6 +13,9 @@ import com.cheguo.tuochenew.R;
 import com.cheguo.tuochenew.adapter.FragmentAdapter;
 import com.cheguo.tuochenew.base.BaseActivity;
 import com.cheguo.tuochenew.ui.fragment.HomeFragment;
+import com.cheguo.tuochenew.ui.fragment.HomeFragment2;
+import com.cheguo.tuochenew.ui.fragment.HomeFragment3;
+import com.cheguo.tuochenew.ui.fragment.HomeFragment4;
 import com.cheguo.tuochenew.ui.fragment.TrustOrderCenterFragment;
 
 import java.util.ArrayList;
@@ -54,8 +57,9 @@ public class MainActivity extends BaseActivity {
 
         mFragments = new ArrayList<>();
             mFragments.add(HomeFragment.newInstance(1));
-            mFragments.add(HomeFragment.newInstance(1));
-            mFragments.add(HomeFragment.newInstance(1));
+            mFragments.add(HomeFragment2.newInstance(1));
+            mFragments.add(HomeFragment3.newInstance(1));
+//            mFragments.add(HomeFragment4.newInstance(1));
             mFragments.add(TrustOrderCenterFragment.newInstance());
         adapter = new FragmentAdapter(getSupportFragmentManager(), mFragments, mTitles);
         mViewPager.setAdapter(adapter);//给ViewPager设置适配器
