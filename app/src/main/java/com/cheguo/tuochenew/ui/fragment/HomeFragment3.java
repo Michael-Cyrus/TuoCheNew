@@ -7,6 +7,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -52,7 +53,7 @@ public class HomeFragment3 extends BaseLazyFragment {
     }
 
     @Override
-    protected void afterCreate(Bundle savedInstanceState) {
+    protected void afterCreate(View view, Bundle savedInstanceState) {
         Logger.e("afterCreate");
         ((AppCompatActivity)mContext).setSupportActionBar(mToolbar);
 //        mToolbar.inflateMenu(R.menu.main3);
@@ -62,7 +63,9 @@ public class HomeFragment3 extends BaseLazyFragment {
     private void initView() {
 //        mToolbar.setTitleTextColor(ContextCompat.getColor(mContext, R.color.black));
         mToolbar.setTitleTextAppearance(mContext, R.style.mToolbarTitle);
-        mToolbar.setTitle("接单大厅");
+        mToolbar.setTitle("关注");
+        mToolbar.getMenu().clear();
+        mToolbar.inflateMenu(R.menu.main3);
     }
 
     @Override
@@ -73,8 +76,8 @@ public class HomeFragment3 extends BaseLazyFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        mToolbar.getMenu().clear();
-        mToolbar.inflateMenu(R.menu.main3);
+//        mToolbar.getMenu().clear();
+//        mToolbar.inflateMenu(R.menu.main3);
         // 获取ToolBar 的Menu控件采用以下方式获取，从ToolBar中获取Menu，然后获取Item控件
 //        MenuItem search = mToolbar.getMenu().findItem(R.id.ab_search);
 //        menu.clear();

@@ -11,14 +11,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 
 import com.cheguo.tuochenew.R;
 import com.cheguo.tuochenew.ui.view.CenterTitleToolbar;
@@ -55,49 +51,11 @@ public abstract class BaseFragment extends Fragment {
         if (getLayoutId() <= 0) {
             return super.onCreateView(inflater, container, savedInstanceState);
         }
-        if(show){
-            mRootView = inflater.inflate(R.layout.fragment_base, container, false);
-            if(mRootView != null){
-                LinearLayout mRootLayout = (LinearLayout) mRootView.findViewById(R.id.root_layout);
-                View view = inflater.inflate(getLayoutId(), container, false);
-                mRootLayout.addView(view,
-                    new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            }
-            initToolbar();
-        }else{
-            mRootView = inflater.inflate(getLayoutId(), container, false);
-        }
-        return mRootView;
-    }
+        View view = LayoutInflater.from(mContext).inflate(getLayoutId(), container, false);
+        afterCreate(view, savedInstanceState);
 
-    private void initToolbar() {
-        mToolbar = (CenterTitleToolbar)mRootView.findViewById(R.id.toolbar);
-        if (mToolbar != null) {
-            showOrHideToolBar(show);
-            //mToolbar.inflateMenu(R.menu.main);
-            /** 设置支持ActionBar，也可以不使用ActionBar */
-            //setSupportActionBar(mToolbar);
-            /** 去除ActionBar默认Title显示,可以不使用ActionBar */
-            // getSupportActionBar().setDisplayShowTitleEnabled(false);
-            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            //mToolbar.setNavigationOnClickListener(null);
-        }
+        return view;
     }
-
-    protected void showToolBar(boolean show){
-        this.show = show;
-    }
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        if(show) {
-//            menu.clear();
-//            mToolbar.inflateMenu(R.menu.main);
-//            // 获取ToolBar 的Menu控件采用以下方式获取，从ToolBar中获取Menu，然后获取Item控件
-//            MenuItem search = mToolbar.getMenu().findItem(R.id.ab_search);
-////        inflater.inflate(R.menu.main, menu);    // 不能使用这种方式给ToolBar添加Menu
-//        }
-//    }
-
 
     /**
      * 显示Toolbar
@@ -158,7 +116,7 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        afterCreate(savedInstanceState);
+        afterCreate(view, savedInstanceState);
     }
 
     @Override
@@ -169,7 +127,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract int getLayoutId();
 
-    protected abstract void afterCreate(Bundle savedInstanceState);
+    protected abstract void afterCreate(View view, Bundle savedInstanceState);
 
     /**
      * 设置导航图标为返回按钮

@@ -2,6 +2,7 @@ package com.cheguo.tuochenew.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.orhanobut.logger.Logger;
@@ -12,7 +13,7 @@ import java.util.List;
  * 适配器
  * Created by lijuan on 2016/8/23.
  */
-public class FragmentAdapter extends FragmentStatePagerAdapter {
+public class FragmentAdapter extends FragmentPagerAdapter {
     public List<Fragment> fragmentList;
     private List<String> titles;
 

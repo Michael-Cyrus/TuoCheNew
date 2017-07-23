@@ -7,6 +7,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -52,7 +53,7 @@ public class HomeFragment4 extends BaseLazyFragment {
     }
 
     @Override
-    protected void afterCreate(Bundle savedInstanceState) {
+    protected void afterCreate(View view, Bundle savedInstanceState) {
         Logger.e("afterCreate");
         ((AppCompatActivity)mContext).setSupportActionBar(mToolbar);
 //        mToolbar.inflateMenu(R.menu.main4);

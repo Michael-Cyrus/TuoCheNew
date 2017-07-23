@@ -7,9 +7,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.cheguo.tuochenew.R;
-import com.cheguo.tuochenew.adapter.FragmentAdapter;
+import com.cheguo.tuochenew.adapter.MainItemTabAdapter;
 import com.cheguo.tuochenew.base.BaseLazyFragment;
 import com.cheguo.tuochenew.ui.view.CenterTitleToolbar;
 
@@ -29,6 +30,8 @@ public class TrustOrderCenterFragment extends BaseLazyFragment {
 
     private List<String> mTitlesList;
     private List<Fragment> fragmentList = new ArrayList<>();
+    private String[] titleArr;
+    private String[] mTabTitles;
 
     public static TrustOrderCenterFragment newInstance() {
         TrustOrderCenterFragment fragment = new TrustOrderCenterFragment();
@@ -47,7 +50,7 @@ public class TrustOrderCenterFragment extends BaseLazyFragment {
     }
 
     @Override
-    protected void afterCreate(Bundle savedInstanceState) {
+    protected void afterCreate(View view, Bundle savedInstanceState) {
         mToolbar.setTitle("派单中心");
         mToolbar.inflateMenu(R.menu.search);
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -63,20 +66,21 @@ public class TrustOrderCenterFragment extends BaseLazyFragment {
         });
 
         int[] showStatusArr=getResources().getIntArray(R.array.order_item_show_num);
-        String[] titleArr=getResources().getStringArray(R.array.order_status_str);
-        mTitlesList = new ArrayList<>();
+        titleArr = getResources().getStringArray(R.array.order_status_str);
+        mTabTitles =new String[titleArr.length];
+        fragmentList.clear();
         for (int i = 0; i < titleArr.length; i++) {
             fragmentList.add(TabFragment.newInstance(showStatusArr[i]));
-            mTitlesList.add(titleArr[i]);
-            tabLayout.addTab(tabLayout.newTab().setText(mTitlesList.get(i)));
+            mTabTitles[i]=titleArr[i];
+            tabLayout.addTab(tabLayout.newTab().setText(titleArr[i]));
         }
     }
 
     @Override
     public void onFirstUserVisible() {
-//        viewpager.setOffscreenPageLimit(mTitlesList.length);
-        viewpager.setAdapter(new FragmentAdapter(getChildFragmentManager(), fragmentList, mTitlesList));
+        viewpager.setAdapter(new MainItemTabAdapter(getChildFragmentManager(), fragmentList, mTabTitles));
         tabLayout.setupWithViewPager(viewpager);
+//        viewpager.setOffscreenPageLimit(mTitlesList.length);
     }
 
     //    @Override

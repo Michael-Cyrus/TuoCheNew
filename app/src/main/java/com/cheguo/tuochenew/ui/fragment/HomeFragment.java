@@ -7,11 +7,11 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cheguo.tuochenew.R;
-import com.cheguo.tuochenew.base.BaseFragment;
 import com.cheguo.tuochenew.base.BaseLazyFragment;
 import com.orhanobut.logger.Logger;
 
@@ -21,7 +21,7 @@ import butterknife.Bind;
  * Created by chenyao on 2017/7/12.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseLazyFragment {
     public final String TAG = this.getClass().getSimpleName();
 
 //    @Bind(R.id.mToolbar)
@@ -44,7 +44,6 @@ public class HomeFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        showToolBar(true);
     }
 
     @Override
@@ -53,10 +52,10 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    protected void afterCreate(Bundle savedInstanceState) {
+    protected void afterCreate(View view, Bundle savedInstanceState) {
         Logger.e("afterCreate");
         ((AppCompatActivity)mContext).setSupportActionBar(mToolbar);
-//        mToolbar.inflateMenu(R.menu.main);
+
         initView();
     }
 
@@ -64,6 +63,8 @@ public class HomeFragment extends BaseFragment {
 //        mToolbar.setTitleTextColor(ContextCompat.getColor(mContext, R.color.black));
         mToolbar.setTitleTextAppearance(mContext, R.style.mToolbarTitle);
         mToolbar.setTitle("接单大厅");
+        mToolbar.getMenu().clear();
+        mToolbar.inflateMenu(R.menu.main);
     }
 
     @Override
@@ -74,8 +75,8 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        mToolbar.getMenu().clear();
-        mToolbar.inflateMenu(R.menu.main);
+//        mToolbar.getMenu().clear();
+//        mToolbar.inflateMenu(R.menu.main);
         // 获取ToolBar 的Menu控件采用以下方式获取，从ToolBar中获取Menu，然后获取Item控件
 //        MenuItem search = mToolbar.getMenu().findItem(R.id.ab_search);
 //        menu.clear();
