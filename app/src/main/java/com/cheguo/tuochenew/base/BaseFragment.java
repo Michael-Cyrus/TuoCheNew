@@ -29,10 +29,9 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends Fragment {
 
     public final String TAG = this.getClass().getSimpleName();
-    protected View mRootView;
-    protected CenterTitleToolbar mToolbar;
-    private boolean show;
+    private boolean showImmersion;
     protected Context mContext;
+    private View mRootView;
 
     @Override
     public void onAttach(Context context) {
@@ -51,18 +50,27 @@ public abstract class BaseFragment extends Fragment {
         if (getLayoutId() <= 0) {
             return super.onCreateView(inflater, container, savedInstanceState);
         }
-        View view = LayoutInflater.from(mContext).inflate(getLayoutId(), container, false);
-        afterCreate(view, savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setTranslucentStatus(showImmersion);
+        }
+        mRootView = LayoutInflater.from(mContext).inflate(getLayoutId(), container, false);
+        ButterKnife.bind(this, mRootView);
+        afterCreate(mRootView, savedInstanceState);
 
-        return view;
+        return mRootView;
+    }
+
+    public void setShowImmersion(boolean showImmersion) {
+        this.showImmersion = showImmersion;
     }
 
     /**
      * 显示Toolbar
      *
+     * @param mToolbar
      * @param show true:显示,false:隐藏
      */
-    public void showOrHideToolBar(boolean show) {
+    public void showOrHideToolBar(CenterTitleToolbar mToolbar, boolean show) {
         if (mToolbar == null) {
             Log.e(TAG, "Toolbar is null.");
         } else {
@@ -79,20 +87,20 @@ public abstract class BaseFragment extends Fragment {
              **/
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 setTranslucentStatus(show);
-                if (show) {
-                    paddingTop += statusHeight;
-                    height += statusHeight;
-                } else {
-                    paddingTop -= statusHeight;
-                    height -= statusHeight;
-                }
+            }
+            if (show) {
+                paddingTop += statusHeight;
+                height += statusHeight;
+            } else {
+                paddingTop -= statusHeight;
+                height -= statusHeight;
             }
             params.height = height;
+            mToolbar.setLayoutParams(params);
             mToolbar.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             mToolbar.setVisibility(show ? View.VISIBLE : View.GONE);
         }
     }
-
     /**
      * 设置透明状态栏
      * 对4.4及以上版本有效

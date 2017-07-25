@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
-    <!--<com.cheguo.tuochenew.ui.view.CenterTitleToolbar
+    <com.cheguo.tuochenew.ui.view.CenterTitleToolbar
         android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:background="@color/colorAccent"
         android:layout_height="@dimen/toolBarHeight"
         android:layout_width="match_parent"
-        app:title="首页" />-->
+        app:title="首页" />
 
     <ImageView
         android:id="@+id/iv_img"

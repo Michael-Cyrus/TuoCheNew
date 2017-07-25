@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +11,7 @@ import android.widget.Toast;
 
 import com.cheguo.tuochenew.R;
 import com.cheguo.tuochenew.base.BaseLazyFragment;
+import com.cheguo.tuochenew.ui.view.CenterTitleToolbar;
 import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
@@ -24,8 +23,8 @@ import butterknife.Bind;
 public class HomeFragment3 extends BaseLazyFragment {
     public final String TAG = this.getClass().getSimpleName();
 
-//    @Bind(R.id.mToolbar)
-//    CenterTitleToolbar mToolbar;
+    @Bind(R.id.toolbar)
+    CenterTitleToolbar mToolbar;
     @Bind(R.id.iv_img)
     ImageView ivImg;
 //    @Bind(R.id.toolbar_center_tv)
@@ -44,7 +43,6 @@ public class HomeFragment3 extends BaseLazyFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        showToolBar(true);
     }
 
     @Override
@@ -75,24 +73,6 @@ public class HomeFragment3 extends BaseLazyFragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        mToolbar.getMenu().clear();
-//        mToolbar.inflateMenu(R.menu.main3);
-        // 获取ToolBar 的Menu控件采用以下方式获取，从ToolBar中获取Menu，然后获取Item控件
-//        MenuItem search = mToolbar.getMenu().findItem(R.id.ab_search);
-//        menu.clear();
-//        inflater.inflate(R.menu.main3, menu);    // 不能使用这种方式给ToolBar添加Menu
-//        search.setVisible(true);
-        Logger.e("onCreateOptionsMenu");
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        Logger.e("onPrepareOptionsMenu");
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Logger.e("onOptionsItemSelected");
         switch (item.getItemId()) {
@@ -103,5 +83,10 @@ public class HomeFragment3 extends BaseLazyFragment {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void lazyLoad() {
+        Logger.e(TAG);
     }
 }

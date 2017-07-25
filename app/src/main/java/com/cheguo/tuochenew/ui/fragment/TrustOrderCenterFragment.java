@@ -13,6 +13,7 @@ import com.cheguo.tuochenew.R;
 import com.cheguo.tuochenew.adapter.MainItemTabAdapter;
 import com.cheguo.tuochenew.base.BaseLazyFragment;
 import com.cheguo.tuochenew.ui.view.CenterTitleToolbar;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 import butterknife.Bind;
 
 public class TrustOrderCenterFragment extends BaseLazyFragment {
-
+    public final String TAG = this.getClass().getSimpleName();
     @Bind(R.id.toolbar)
     CenterTitleToolbar mToolbar;
     @Bind(R.id.tabLayout)
@@ -77,11 +78,15 @@ public class TrustOrderCenterFragment extends BaseLazyFragment {
     }
 
     @Override
-    public void onFirstUserVisible() {
+    protected void lazyLoad() {
+        Logger.e(TAG);
         viewpager.setAdapter(new MainItemTabAdapter(getChildFragmentManager(), fragmentList, mTabTitles));
         tabLayout.setupWithViewPager(viewpager);
-//        viewpager.setOffscreenPageLimit(mTitlesList.length);
     }
+//    @Override
+//    public void onFirstUserVisible() {
+////        viewpager.setOffscreenPageLimit(mTitlesList.length);
+//    }
 
     //    @Override
 //    protected void onEnterAnimationEnd(Bundle savedInstanceState) {

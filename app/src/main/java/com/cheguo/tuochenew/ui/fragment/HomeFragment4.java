@@ -12,7 +12,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cheguo.tuochenew.R;
-import com.cheguo.tuochenew.base.BaseLazyFragment;
+import com.cheguo.tuochenew.base.BaseFragment;
+import com.cheguo.tuochenew.ui.view.CenterTitleToolbar;
 import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
@@ -21,11 +22,11 @@ import butterknife.Bind;
  * Created by chenyao on 2017/7/12.
  */
 
-public class HomeFragment4 extends BaseLazyFragment {
+public class HomeFragment4 extends BaseFragment {
     public final String TAG = this.getClass().getSimpleName();
 
-//    @Bind(R.id.mToolbar)
-//    CenterTitleToolbar mToolbar;
+    @Bind(R.id.toolbar)
+    CenterTitleToolbar mToolbar;
     @Bind(R.id.iv_img)
     ImageView ivImg;
 //    @Bind(R.id.toolbar_center_tv)
@@ -44,7 +45,6 @@ public class HomeFragment4 extends BaseLazyFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        showToolBar(true);
     }
 
     @Override
