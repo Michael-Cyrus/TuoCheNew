@@ -31,6 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         //注册注解butterknife
         ButterKnife.bind(this);
         initView();
+        /* Dev 分支新增内容 */
     }
 
     protected void setStatusBar(boolean statusBarEnabled) {

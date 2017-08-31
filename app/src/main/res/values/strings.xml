@@ -2,4 +2,10 @@
     <string name="app_name">随时拖</string>
     <string name="press_again_exit">再按一次退出</string>
     <string name="action_settings">设置</string>
+
+    <string name="all_type">所有类型</string>
+    <string name="all">全部</string>
+    <string name="confirm_relevance">确认关联</string>
+    <string name="contract_print">合同套打</string>
+    <string name="connect_contract">关联空白合同</string>
 </resources>
